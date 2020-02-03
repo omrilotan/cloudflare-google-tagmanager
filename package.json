@@ -1,0 +1,35 @@
+{
+  "name": "@omrilotan/cloudflare-google-tagmanager",
+  "version": "1.0.0",
+  "description": "Add Google Tag Manager container to your website",
+  "private": true,
+  "author": "omrilotan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omrilotan/cloudflare-google-tagmanager.git"
+  },
+  "scripts": {
+    "build": "rollup -c .rollup.js",
+    "postbuild": "cp install.json dist/install.json",
+    "test": "mocha '**/spec.js' --recursive --exclude 'node_modules'",
+    "prebrowser": "rollup --config .rollup.browser.js",
+    "browser": "karma start .karma.js",
+    "lint": "eslint '**/*.js' --plugin log"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-log": "^1.2.3",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cli": "^2.0.0",
+    "karma-firefox-launcher": "^1.3.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "mocha": "^7.0.1",
+    "rollup": "^1.31.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}

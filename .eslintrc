@@ -1,0 +1,46 @@
+{
+	"extends": "eslint:recommended",
+	"overrides": [
+		{
+			"files": [ "src/**/spec.js" ],
+			"env": {
+				"node": true,
+				"mocha": true
+			},
+			"parserOptions": {
+				"ecmaVersion": 2020
+			}
+		},
+		{
+			"files": [ "browser/**/*.js" ],
+			"env": {
+				"browser": true,
+				"node": true,
+				"mocha": true
+			},
+			"parserOptions": {
+				"ecmaVersion": 2020
+			}
+		},
+		{
+			"files": [ "src/**/index.js" ],
+			"env": {
+				"browser": true
+			},
+			"parserOptions": {
+				"sourceType": "module",
+				"ecmaVersion": 2015
+			},
+			"globals": {
+				"INSTALL_OPTIONS": "readonly"
+			}
+		},
+		{
+			"files": [ "rollup.config.js" ],
+			"parserOptions": {
+				"sourceType": "module",
+				"ecmaVersion": 2020
+			}
+		}
+	]
+}
