@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json.schemastore.org/install",
+  "resources": {
+    "body": [
+      {
+        "type": "script",
+        "src": "./index.js"
+      }
+    ]
+  },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["_default"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
+  },
+  "options": {
+    "properties": {
+      "container_id": {
+        "title": "Container ID",
+        "description": "Add your container ID here",
+        "type": "string",
+        "order": 0,
+        "default": "GTM-XXXXXXX"
+      }
+    }
+  }
+}
