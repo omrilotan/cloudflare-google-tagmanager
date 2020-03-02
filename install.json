@@ -20,10 +20,10 @@
     "properties": {
       "container_id": {
         "title": "Container ID",
-        "description": "Add your container ID here",
+        "description": "Add your container ID here (GTM-XXXXXXX)",
         "type": "string",
         "order": 0,
-        "default": "GTM-XXXXXXX"
+        "default": ""
       }
     }
   }

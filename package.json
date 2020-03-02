@@ -1,6 +1,6 @@
 {
   "name": "@omrilotan/cloudflare-google-tagmanager",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Add Google Tag Manager container to your website",
   "private": true,
   "author": "omrilotan",
