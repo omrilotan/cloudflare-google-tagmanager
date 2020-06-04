@@ -1,20 +1,25 @@
 const { expect } = require('chai');
+const wait = require('@lets/wait');
 let script = null;
+
+function mockDoc() {
+	global.document = {
+		createElement: tagName => ({ tagName }),
+		body: {
+			appendChild: arg => { script = arg; }
+		},
+		querySelector: () => ({
+			appendChild: arg => { script = arg; }
+		})
+	};
+}
 
 describe(
 	'script tag',
 	() => {
 		beforeEach(() => {
 			global.INSTALL_OPTIONS = { container_id: 'GTM-ABCDEFG' };
-			global.document = {
-				createElement: tagName => ({ tagName }),
-				body: {
-					appendChild: arg => { script = arg; }
-				},
-				querySelector: () => ({
-					appendChild: arg => { script = arg; }
-				})
-			};
+			mockDoc();
 		});
 		afterEach(() => {
 			delete global.INSTALL_OPTIONS;
@@ -39,6 +44,21 @@ describe(
 			() => {
 				delete global.document.body;
 				require('.');
+				expect(script).to.be.an('object');
+			}
+		);
+
+		it(
+			'should retry until it finds the body',
+			async() => {
+				global.document.body = null;
+				global.document.querySelector = () => null;
+				require('.');
+				expect(script).to.be.null;
+				mockDoc();
+				await wait(50);
+				expect(script).to.be.null;
+				await wait(110);
 				expect(script).to.be.an('object');
 			}
 		);
