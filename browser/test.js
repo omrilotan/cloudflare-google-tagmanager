@@ -1,10 +1,6 @@
 describe(
 	'Tag Manager script',
 	() => {
-		before(() => {
-			require('./globals.js');
-			require('../src/index.js');
-		});
 		it(
 			'should add script element with GTM source to the document',
 			() => {

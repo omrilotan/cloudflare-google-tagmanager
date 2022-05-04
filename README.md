@@ -1,4 +1,4 @@
-# Cloudflare 💘 Google Tag Manager [![](https://circleci.com/gh/omrilotan/cloudflare-google-tagmanager.svg?style=svg)](https://circleci.com/gh/omrilotan/cloudflare-google-tagmanager)
+# Cloudflare 💘 Google Tag Manager
 
 ☁ Add Google Tag Manager container to your Cloudflare powered website with ease!
 

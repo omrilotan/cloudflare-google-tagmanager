@@ -1,0 +1,19 @@
+name: Test
+on:
+  - push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo environment
+        run: echo "nodejs $(node -v), npm v$(npm -v)"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm i
+      - run: npm t
+      - run: npm run browser
+      - run: npm run lint

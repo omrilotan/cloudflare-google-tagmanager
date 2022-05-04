@@ -1,10 +1,8 @@
-const { output: { file } } = require('./.rollup.browser.js');
-
 module.exports = (config) => {
   const { LOG_INFO: logLevel } = config;
 
   config.set({
-    browsers: [ 'Chrome', 'Firefox' ],
+    browsers: [ 'ChromeHeadless' ],
     frameworks: [ 'mocha' ],
     port: 9876,
     logLevel,
@@ -18,6 +16,6 @@ module.exports = (config) => {
     ],
     reporters: [ 'mocha' ],
     basePath: __dirname,
-    files: [ file ]
+    files: [ './browser/globals.js', './dist/index.js', './browser/test.js' ]
   })
 }

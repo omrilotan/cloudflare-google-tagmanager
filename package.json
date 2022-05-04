@@ -10,27 +10,25 @@
     "url": "git+https://github.com/omrilotan/cloudflare-google-tagmanager.git"
   },
   "scripts": {
-    "build": "rollup -c .rollup.js",
+    "build": "esbuild src/index.js --outfile=dist/index.js --format=iife --bundle --minify",
     "postbuild": "cp install.json dist/install.json",
     "test": "mocha '**/spec.js' --recursive --exclude 'node_modules'",
-    "prebrowser": "rollup --config .rollup.browser.js",
+    "prebrowser": "npm run build",
     "browser": "karma start .karma.js",
     "lint": "eslint '**/*.js' --plugin log"
   },
   "devDependencies": {
     "@lets/wait": "^2.0.2",
-    "@rollup/plugin-commonjs": "^21.0.2",
     "chai": "^4.3.6",
-    "eslint": "^8.11.0",
+    "esbuild": "^0.14.38",
+    "eslint": "^8.14.0",
     "eslint-plugin-log": "^1.2.7",
-    "karma": "^6.3.17",
+    "karma": "^6.3.19",
     "karma-chrome-launcher": "^3.1.1",
     "karma-cli": "^2.0.0",
     "karma-firefox-launcher": "^2.1.2",
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
-    "mocha": "^9.2.2",
-    "rollup": "^2.70.1",
-    "rollup-plugin-uglify": "^6.0.4"
+    "mocha": "^10.0.0"
   }
 }
